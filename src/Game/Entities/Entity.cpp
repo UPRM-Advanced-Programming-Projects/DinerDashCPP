@@ -1,12 +1,11 @@
 #include "Entity.h"
 
-Entity::Entity(int x, int y, int width, int height, ofImage* sprite, Handler* handler){
+Entity::Entity(int x, int y, int width, int height, ofImage* sprite){
     this->x = x;
     this->y = y;
     this->width = width;
     this->height = height;
     this->sprite = sprite;
-    this->handler = handler;
     this->bounds = ofRectangle(x, y, width, height);
 }
 
