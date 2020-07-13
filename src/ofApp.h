@@ -1,10 +1,15 @@
 #pragma once
 
 #include "ofMain.h"
+#include "MenuState.h"
 
 class ofApp : public ofBaseApp{
 
-	public:
+private:
+	State *currentState;
+	MenuState* menuState;
+
+public:
 		void setup();
 		void update();
 		void draw();

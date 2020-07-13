@@ -1,22 +1,39 @@
 #include "ofApp.h"
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
+
+	ofSetWindowTitle("Java Game Box");
+	//States
+	menuState = new MenuState();
+
+	// Initial State
+	currentState = menuState;
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	if (currentState != nullptr)
+		currentState->tick();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+	if (currentState != nullptr)
+		currentState->render();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+
+	switch (key)
+	{
+	case '4': ofBackground(ofColor(150));
+	default:
+		break;
+	}
 
 }
 

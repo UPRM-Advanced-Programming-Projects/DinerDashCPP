@@ -180,8 +180,6 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxColorPicker.cpp" />
@@ -192,14 +190,11 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuState.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityManager.h" />
-    <ClInclude Include="GameSetUp.h" />
-    <ClInclude Include="Handler.h" />
-    <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxColorPicker.h" />
@@ -212,7 +207,13 @@
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
-    <ClInclude Include="State.h" />
+    <ClInclude Include="src\Animation.h" />
+    <ClInclude Include="src\Entity.h" />
+    <ClInclude Include="src\EntityManager.h" />
+    <ClInclude Include="src\Images.h" />
+    <ClInclude Include="src\MenuState.h" />
+    <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\State.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
