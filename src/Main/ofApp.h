@@ -2,12 +2,14 @@
 
 #include "ofMain.h"
 #include "MenuState.h"
+#include "GameState.h"
 
 class ofApp : public ofBaseApp{
 
 private:
 	State *currentState;
-	MenuState* menuState;
+	MenuState *menuState;
+	GameState *gameState;
 
 public:
 		void setup();

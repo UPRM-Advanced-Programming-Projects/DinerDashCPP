@@ -1,14 +1,29 @@
 #include "MenuState.h"
 
-int x, y;
 MenuState::MenuState() {
-	img1.load("test.png");
-	x = y = 0;
+	startButton = new Button(ofGetWidth()/2, ofGetHeight()/2, 64, 20);
 }
 void MenuState::tick() {
-	x += 1;
-	y += 1;
+	startButton->tick();
+	if(startButton->wasPressed()){
+		nextState = "Game";
+		finished = true;
+
+	}
 }
 void MenuState::render() {
-	img1.draw(x, y);
+	startButton->render();
+}
+
+void MenuState::keyPressed(int key){
+	
+}
+
+void MenuState::mousePressed(int x, int y, int button){
+	startButton->mousePressed(x, y);
+}
+
+void MenuState::reset(){
+	finished = false;
+	nextState = nullptr;
 }
