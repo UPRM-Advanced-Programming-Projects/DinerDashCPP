@@ -5,7 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "Linux Ubuntu",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/APGameEngine",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Windows",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/APGameEngine.exe",
