@@ -17,12 +17,9 @@ void ofApp::update(){
 	if (currentState != nullptr){
 		currentState->tick();
 		if(currentState->hasFinished()){
-			printf("State Finished");
 			if(currentState->getNextState() == "Menu"){
-				printf("Menu State is now current state");
 				currentState = menuState;
 			}else if(currentState->getNextState() == "Game"){
-				printf("Game State is now current state");
 				currentState = gameState;
 			}
 			currentState->reset();

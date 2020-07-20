@@ -5,13 +5,13 @@ GameState::GameState() {
 void GameState::tick() {
 }
 void GameState::render() {
-	ofSetBackgroundColor(ofRandom(256), ofRandom(256), ofRandom(256));
+	ofSetBackgroundColor(0, 256, 0);
 }
 
 void GameState::keyPressed(int key){
 	if(key == 'm'){
-        finished = true;
-        nextState = "Menu";
+        setFinished(true);
+        setNextState("Menu");
     }
 }
 
@@ -19,6 +19,6 @@ void GameState::mousePressed(int x, int y, int button){
 }
 
 void GameState::reset(){
-	finished = false;
-	nextState = "";
+	setFinished(false);
+	setNextState("");
 }

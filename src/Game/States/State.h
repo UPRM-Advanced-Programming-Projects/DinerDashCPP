@@ -23,11 +23,19 @@ class State {
 		bool hasFinished(){
 			return finished;
 		}
-		char* getNextState(){
+		string getNextState(){
 			return nextState;
 		}
+		void setFinished(bool finished){
+			this->finished = finished;
+		}
 
-	protected:
+		void setNextState(string nextState){
+			this->nextState = nextState;
+		}
+
+	private:
+		string nextState;
 		bool finished = false;
-		char *nextState;
+
 };

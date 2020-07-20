@@ -5,13 +5,18 @@ Button::Button(){
     this->width = 64;
     this->height = 20; 
 }
-Button::Button(int xPos, int yPos, int width, int height){
+Button::Button(int xPos, int yPos, int width, int height, string buttonText){
     this->xPos = xPos;
     this->yPos = yPos;
     this->width = width;
     this->height = height;
+    this->buttonText = buttonText;
 }
 
+void Button::reset(){
+    pressedCounter = -1;
+    pressed = false;
+}
 void Button::tick(){
     pressedCounter--;
     if(pressedCounter == 0){
@@ -24,6 +29,7 @@ void Button::tick(){
 void Button::mousePressed(int x, int y){
     if(xPos + width >= x && x >= xPos &&  yPos + height >= y && y >= yPos){
         pressed = true;
+        pressedCounter = 10;
     }
 }
 
@@ -33,8 +39,9 @@ void Button::render(){
     }else{
         ofSetColor(256, 0, 0);
     }
-    ofDrawPlane(xPos, yPos, width, height);
-    
+    // ofDrawRectangle(xPos, yPos, width, height);
+    ofSetColor(0);
+    ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
 }
 
 bool Button::wasPressed(){
