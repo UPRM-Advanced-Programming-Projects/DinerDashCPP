@@ -1,4 +1,6 @@
 #include "State.h"
+#include "EntityManager.h"
+#include "Player.h"
 
 class GameState: public State{
     public: 
@@ -8,4 +10,8 @@ class GameState: public State{
 		void render();
 		void keyPressed(int key);
 		void mousePressed(int x, int y, int button);
+	
+	private:
+		EntityManager *entityManager;
+		Player *player;
 };

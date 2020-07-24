@@ -11,6 +11,7 @@ private:
 	MenuState *menuState;
 	GameState *gameState;
 
+
 public:
 		void setup();
 		void update();

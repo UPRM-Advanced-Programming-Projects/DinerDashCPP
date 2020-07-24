@@ -1,9 +1,9 @@
 #pragma once
-#include "ofImage.h"
+#include "ofMain.h"
 
 class Images {
 
 public:
-	Images();
+	void loadImages();
 	static ofImage img1;
 };

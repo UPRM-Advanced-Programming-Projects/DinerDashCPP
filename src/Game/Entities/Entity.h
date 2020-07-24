@@ -1,15 +1,14 @@
 #pragma once
-#include "ofImage.h"
-#include "ofRectangle.h"
+#include "ofMain.h"
 
 class Entity {
-	private:
+	protected:
 		int x, y, width, height, health;
-		ofImage* sprite;
-		ofRectangle bounds;
+		ofImage sprite;
 		bool remove;
+		int ticks = 0;
 	public:
-		Entity(int x, int y, int width, int height, ofImage* sprite);
+		explicit Entity(int x, int y, int width, int height, ofImage sprite);
 		void tick();
 		void render();
 		void damage(Entity* damageSource);

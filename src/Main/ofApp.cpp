@@ -1,5 +1,5 @@
 #include "ofApp.h"
-
+#include "Images.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -9,7 +9,6 @@ void ofApp::setup(){
 	gameState = new GameState();
 	// Initial State
 	currentState = menuState;
-
 }
 
 //--------------------------------------------------------------
