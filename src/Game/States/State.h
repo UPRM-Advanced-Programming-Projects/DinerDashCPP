@@ -11,7 +11,7 @@ class State {
 		virtual void keyPressed(int key) = 0;
 		virtual void mousePressed(int x, int y, int button) = 0;
 
-		void keyReleased(int key){}
+		virtual void keyReleased(int key){}
 		void mouseMoved(int x, int y){}
 		void mouseDragged(int x, int y, int button){}
 		void mouseReleased(int x, int y, int button){}

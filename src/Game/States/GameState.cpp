@@ -3,11 +3,12 @@
 
 GameState::GameState() {
 	entityManager = new EntityManager();
-	ofImage blockImage;
+	ofImage blockImage, basePlayerImage;
 	blockImage.load("test.png");
+	basePlayerImage.load("basic_player_transparent.png");
 	Entity *block = new Entity(ofGetWidth()/2, ofGetHeight()/2, 64, 64, blockImage);
 	entityManager->entities.push_back(*block);
-	player = new Player(ofGetWidth()/2, ofGetHeight()/2, 64, 64, blockImage);
+	player = new Player(ofGetWidth()/2, ofGetHeight()/2, 64, 64, basePlayerImage);
 
 }
 void GameState::tick() {
@@ -30,6 +31,10 @@ void GameState::keyPressed(int key){
 
 void GameState::mousePressed(int x, int y, int button){
 	player->mousePressed(x, y, button);
+}
+
+void GameState::keyReleased(int key){
+	player->keyReleased(key);
 }
 
 void GameState::reset(){

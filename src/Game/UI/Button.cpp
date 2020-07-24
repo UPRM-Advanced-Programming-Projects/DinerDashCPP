@@ -34,12 +34,6 @@ void Button::mousePressed(int x, int y){
 }
 
 void Button::render(){
-    if(pressed){
-        ofSetColor(0, 256, 0);
-    }else{
-        ofSetColor(256, 0, 0);
-    }
-    // ofDrawRectangle(xPos, yPos, width, height);
     ofSetColor(0);
     ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
 }
