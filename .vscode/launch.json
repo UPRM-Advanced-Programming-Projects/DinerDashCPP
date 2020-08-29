@@ -33,6 +33,7 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
+            "MIMode": "lldb"
         },
         {
             "name": "Windows",
