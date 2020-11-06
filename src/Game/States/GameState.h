@@ -1,6 +1,5 @@
 #include "State.h"
-#include "EntityManager.h"
-#include "Player.h"
+#include "Restaurant.h"
 
 class GameState: public State{
     public: 
@@ -13,6 +12,5 @@ class GameState: public State{
 		void keyReleased(int key);
 	
 	private:
-		EntityManager *entityManager;
-		Player *player;
+		Restaurant *restaurant;
 };

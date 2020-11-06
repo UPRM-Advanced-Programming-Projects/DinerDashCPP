@@ -1,31 +1,26 @@
 #pragma once
 #include "Animation.h"
-
-#include "Entity.h"
+#include "Burger.h"
+#include "EntityManager.h"
+#include "BaseCounter.h"
 class Player: public Entity{
 
     private:
-        int health;
-        int score;
         int speed = 5;
-        bool walking = false;
-        string facing = "down";
-        ofImage up, down, left, right;
-        Animation *walkUp;
-        Animation *walkDown;
-        Animation *walkLeft;
-        Animation *walkRight;
-
+        string facing = "right";
+        Animation *chefAnim;
+        Burger *burger;
+        EntityManager* entityManager;
     public:
-        Player(int x, int y, int width, int height, ofImage sprite);
-        int getHealth();
-        int getScore();
+        Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em);
         void tick();
         void render();
         void keyPressed(int);
         void keyReleased(int);
-        void damage(Entity* damageSource);
         void mousePressed(int, int, int);
-        void reset();
         void setFacing(string);
+        BaseCounter* getActiveCounter();
+        Burger* getBurger(){
+            return burger;
+        }
 };

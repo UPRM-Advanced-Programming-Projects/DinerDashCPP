@@ -1,111 +1,71 @@
 #include "Player.h"
 
-Player::Player(int x, int y, int width, int height, ofImage sprite) : Entity(x, y, width, height, sprite){
-    down.cropFrom(sprite, 25, 100, 355, 450);
-    up.cropFrom(sprite, 25, 700, 355, 450);
-    left.cropFrom(sprite, 50, 1300, 300, 425);
-    right.cropFrom(sprite, 448, 1900, 300, 425);
-    
-    vector<ofImage> downAnimframes;
-    vector<ofImage> upAnimframes;
-    vector<ofImage> leftAnimframes;
-    vector<ofImage> rightAnimframes;
+Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em) : Entity(x, y, width, height, sprite){
+
+    vector<ofImage> chefAnimframes;
     ofImage temp;
-    for(int i=0; i<4; i++){
-        temp.cropFrom(sprite, 25+(i*(50+355)), 100, 355, 450);
-        downAnimframes.push_back(temp);
-    }
-    for(int i=0; i<4; i++){
-        temp.cropFrom(sprite, 25+(i*(50+355)), 700, 355, 450);
-        upAnimframes.push_back(temp);
-    }
-    for(int i=0; i<4; i++){
-        temp.cropFrom(sprite, 50+(i*(100+300)), 1300, 300, 425);
-        leftAnimframes.push_back(temp);
-    }
-    for(int i=0; i<4; i++){
-        temp.cropFrom(sprite, 50+(i*(100+300)), 1900, 300, 425);
-        rightAnimframes.push_back(temp);
-    }
-    walkDown = new Animation(10,downAnimframes);
-    walkUp = new Animation(10,upAnimframes);
-    walkLeft = new Animation(10,leftAnimframes);
-    walkRight = new Animation(10,rightAnimframes);
+    this->burger = new Burger(ofGetWidth()-110, 100, 100, 50);
+    temp.cropFrom(sprite, 30,3,66,120);
+    chefAnimframes.push_back(temp);
+    temp.cropFrom(sprite, 159,3,66,120);
+    chefAnimframes.push_back(temp);
+    temp.cropFrom(sprite, 287, 3,67,120);
+    chefAnimframes.push_back(temp);
+    temp.cropFrom(sprite, 31,129,66,120);
+    chefAnimframes.push_back(temp);
+    this->chefAnim = new Animation(50, chefAnimframes);
+    this->entityManager = em;
     
 }
 void Player::tick(){
-    if(walking){
-        if(facing == "up"){
-            y-= speed;
-            walkUp->tick();
-        }else if(facing == "down"){
-            y+=speed;
-            walkDown->tick();
-        }else if(facing == "left"){
-            x-=speed;
-            walkLeft->tick();
-        }else if(facing == "right"){
-            x+=speed;
-            walkRight->tick();
-        }
+    chefAnim->tick();
+    if(facing == "left"){
+        x-=speed;
+    }else if(facing == "right"){
+        x+=speed;
+    }
+    if(x <= 0){
+        facing = "right";
+    }else if(x + width >= ofGetWidth()){
+        facing = "left";
     }
 }
 
 void Player::render(){
-    ofSetColor(256,256,256);
-    if(facing == "up"){
-        if(walking){
-            walkUp->getCurrentFrame().draw(x, y, width, height);
-        }else{
-            up.draw(x, y, width, height);
-        }
-        
-    }else if(facing == "down"){
-        if(walking){
-            walkDown->getCurrentFrame().draw(x, y, width, height);
-        }else{
-            down.draw(x, y, width, height);
-        }
-    }else if(facing == "left"){
-        if(walking){
-            walkLeft->getCurrentFrame().draw(x, y, width, height);
-        }else{
-            left.draw(x, y, width, height);
-        }
-    }else if(facing == "right"){
-        if(walking){
-            walkRight->getCurrentFrame().draw(x, y, width, height);
-        }else{
-            right.draw(x, y, width, height);
-        }
+    BaseCounter* ac = getActiveCounter();
+    if(ac != nullptr){
+        ac->showItem();
     }
+    ofSetColor(256,256,256);
+    ofImage currentFrame = chefAnim->getCurrentFrame();
+   if(facing == "left"){
+       currentFrame.mirror(false, true);
+    }
+   currentFrame.draw(x, y, width, height);
+   burger->render();
 }
 
 void Player::keyPressed(int key){
-    switch(key){
-        case 'w':
-            walking = true;
-            setFacing("up");
-            break;
-        case 's':
-            walking = true;
-            setFacing("down");
-            break;
-        case 'a':
-            walking = true;
-            setFacing("left");
-            break;
-        case 'd':
-            walking = true;
-            setFacing("right");
-            break;
+    if(key == 'e'){
+        BaseCounter* ac = getActiveCounter();
+        if(ac != nullptr){
+            Item* item = ac->getItem();
+            if(item != nullptr){
+                burger->addIngredient(item);
+            }
+        }
     }
 }
-
-void Player::keyReleased(int key){
-    if(key == 'w' || key =='s' || key == 'a' || key == 'd'){
-        walking = false;
+BaseCounter* Player::getActiveCounter(){
+    for(Entity* e:entityManager->entities){
+        BaseCounter* c = dynamic_cast<BaseCounter*>(e);
+        if(x + e->getWidth()/2 >= e->getX() && x +e->getWidth()/2 <e->getX() + e->getWidth()){
+            return c;
+        }
     }
+    return nullptr;
+}
+void Player::keyReleased(int key){
 }
 void Player::mousePressed(int x, int y, int button){
 
