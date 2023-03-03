@@ -21,19 +21,21 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "build"
         },
         {
             "name": "OSX",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/APGameEngine.app/Contents/MacOS/APGameEngine",
+            "program": "${workspaceFolder}/bin/DinerDashCPP.app/Contents/MacOS/DinerDashCPP",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "lldb",
+            "preLaunchTask": "build"
         },
         {
             "name": "Windows",
@@ -53,7 +55,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "build"
         }
     ]
 }

@@ -11,7 +11,7 @@ private:
 	MenuState *menuState;
 	GameState *gameState;
 	
-	ofOpenALSoundPlayer sound;
+	ofSoundPlayer sound;
 
 
 public:
