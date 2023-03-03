@@ -18,7 +18,7 @@ void Burger::addIngredient(Item *item) {
 void Burger::render(){
     int counter = 1;
     for (Item* ingredient:ingredients){
-        ingredient->sprite.draw(x,y-(counter * 10),width,height);
+        ingredient->sprite.draw(x-5,y-(counter * 10)+55,width*0.70,height*0.70);
         counter++;
     }
 }
