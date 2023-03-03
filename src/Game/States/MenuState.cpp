@@ -1,7 +1,8 @@
 #include "MenuState.h"
 
 MenuState::MenuState() {
-	startButton = new Button(ofGetWidth()/2, ofGetHeight()/2, 64, 50, "Start");
+	string text = "Start";
+	startButton = new Button(ofGetWidth()/2 - text.length()*8, ofGetHeight()/2 - text.length()*11, 64, 50, "Start");
 }
 void MenuState::tick() {
 	startButton->tick();
