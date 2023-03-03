@@ -10,6 +10,8 @@ private:
 	State *currentState;
 	MenuState *menuState;
 	GameState *gameState;
+	
+	ofOpenALSoundPlayer sound;
 
 
 public:

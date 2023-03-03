@@ -1,6 +1,5 @@
 #include "ofApp.h"
 #include "Images.h"
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetWindowTitle("Java Game Box");
@@ -9,6 +8,12 @@ void ofApp::setup(){
 	gameState = new GameState();
 	// Initial State
 	currentState = menuState;
+
+	// Sound
+	sound.load("music.wav");
+	sound.play();
+	sound.setLoop(true);
+
 }
 
 //--------------------------------------------------------------
