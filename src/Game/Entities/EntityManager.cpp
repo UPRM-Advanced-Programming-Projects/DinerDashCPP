@@ -11,11 +11,32 @@ void EntityManager::tick(){
 }
 
 void EntityManager::removeLeavingClients(){
-    Client* tempClient = nullptr;
-    while(firstClient != nullptr && firstClient->isLeaving){
-        tempClient = firstClient->nextClient;
-        delete firstClient;
-        firstClient = tempClient;
+    // Client* tempClient = nullptr;
+    // while(firstClient != nullptr && firstClient->isLeaving){
+    //     tempClient = firstClient->nextClient;
+    //     delete firstClient;
+    //     firstClient = tempClient;
+    // }
+
+    // Remove all clients that are leaving
+    Client* tempClient = firstClient;
+    Client* prevClient = nullptr;
+    
+    while(tempClient != nullptr){
+        if(tempClient->isLeaving){
+            if(prevClient == nullptr){
+                firstClient = tempClient->nextClient;
+                delete tempClient;
+                tempClient = firstClient;
+            }else{
+                prevClient->nextClient = tempClient->nextClient;
+                delete tempClient;
+                tempClient = prevClient->nextClient;
+            }
+        }else{
+            prevClient = tempClient;
+            tempClient = tempClient->nextClient;
+        }
     }
 }
 void EntityManager::render(){
