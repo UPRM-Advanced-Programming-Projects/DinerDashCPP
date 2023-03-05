@@ -2,8 +2,7 @@
 // Created by joshu on 11/3/2020.
 //
 
-#ifndef APGAMEENGINE_RESTAURANT_H
-#define APGAMEENGINE_RESTAURANT_H
+# pragma once
 #include "ofMain.h"
 #include "Player.h"
 #include "EntityManager.h"
@@ -37,6 +36,3 @@ class Restaurant {
         void render();
         void keyPressed(int key);
 };
-
-
-#endif //APGAMEENGINE_RESTAURANT_H

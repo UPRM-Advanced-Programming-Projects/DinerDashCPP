@@ -1,9 +1,7 @@
 //
 // Created by joshu on 11/4/2020.
 //
-
-#ifndef APGAMEENGINE_ITEM_H
-#define APGAMEENGINE_ITEM_H
+#pragma once
 
 #include "ofMain.h"
 
@@ -14,6 +12,3 @@ public:
     string name;
    
 };
-
-
-#endif //APGAMEENGINE_ITEM_H

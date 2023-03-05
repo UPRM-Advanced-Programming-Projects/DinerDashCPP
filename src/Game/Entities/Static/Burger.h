@@ -1,9 +1,7 @@
 //
 // Created by joshu on 11/4/2020.
 //
-
-#ifndef APGAMEENGINE_BURGER_H
-#define APGAMEENGINE_BURGER_H
+#pragma once
 
 #include "Item.h"
 #include "Entity.h"
@@ -22,6 +20,3 @@ public:
         this->y = y;
     }
 };
-
-
-#endif //APGAMEENGINE_BURGER_H

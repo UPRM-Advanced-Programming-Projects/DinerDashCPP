@@ -1,9 +1,9 @@
- //
+//
 // Created by joshu on 11/3/2020.
 //
 
-#ifndef APGAMEENGINE_BASECOUNTER_H
-#define APGAMEENGINE_BASECOUNTER_H
+#pragma once
+
 #include "Item.h"
 #include "Entity.h"
 
@@ -17,4 +17,3 @@ class BaseCounter: public Entity {
         void showItem();
 
 };
-#endif //APGAMEENGINE_BASECOUNTER_H
