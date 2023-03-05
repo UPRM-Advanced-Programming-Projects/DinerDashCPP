@@ -11,12 +11,6 @@ void EntityManager::tick(){
 }
 
 void EntityManager::removeLeavingClients(){
-    // Client* tempClient = nullptr;
-    // while(firstClient != nullptr && firstClient->isLeaving){
-    //     tempClient = firstClient->nextClient;
-    //     delete firstClient;
-    //     firstClient = tempClient;
-    // }
 
     // Remove all clients that are leaving
     Client* tempClient = firstClient;
