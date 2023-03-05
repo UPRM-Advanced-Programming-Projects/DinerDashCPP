@@ -5,6 +5,9 @@
             "label": "build",
             "type": "shell",
             "command": "make",
+            "args": [
+                "-j6",
+            ],
             "presentation": {
                 "reveal": "always"
             },
