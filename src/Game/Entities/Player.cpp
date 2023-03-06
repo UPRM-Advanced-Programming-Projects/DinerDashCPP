@@ -32,17 +32,17 @@ void Player::tick(){
 }
 
 void Player::render(){
-    BaseCounter* ac = getActiveCounter();
-    if(ac != nullptr){
+    BaseCounter *ac = getActiveCounter();
+    if (ac != nullptr) {
         ac->showItem();
     }
-    ofSetColor(256,256,256);
+    ofSetColor(256, 256, 256);
     ofImage currentFrame = chefAnim->getCurrentFrame();
-   if(facing == "left"){
-       currentFrame.mirror(false, true);
+    if (facing == "left") {
+        currentFrame.mirror(false, true);
     }
-   currentFrame.draw(x, y, width, height);
-   burger->render();
+    currentFrame.draw(x, y, width, height);
+    burger->render();
 }
 
 void Player::keyPressed(int key){
@@ -65,12 +65,10 @@ BaseCounter* Player::getActiveCounter(){
     }
     return nullptr;
 }
-void Player::keyReleased(int key){
-}
-void Player::mousePressed(int x, int y, int button){
 
+void Player::keyReleased(int key) {
+}
+void Player::mousePressed(int x, int y, int button) {
 }
 
-void Player::setFacing(string facing){
-    this->facing = facing;
-}
+void Player::setFacing(string facing){ this->facing = facing; }

@@ -20,7 +20,6 @@ class Player: public Entity{
         void mousePressed(int, int, int);
         void setFacing(string);
         BaseCounter* getActiveCounter();
-        Burger* getBurger(){
-            return burger;
+        Burger* getBurger(){ return burger;
         }
 };

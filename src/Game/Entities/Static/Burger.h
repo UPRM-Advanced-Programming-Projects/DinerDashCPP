@@ -3,20 +3,20 @@
 //
 #pragma once
 
-#include "Item.h"
 #include "Entity.h"
+#include "Item.h"
 
 class Burger {
-private:
-    int x,y,width,height;
- vector<Item*> ingredients;
+  private:
+    int x, y, width, height;
+    vector<Item *> ingredients;
 
-public:
+  public:
     Burger(int, int, int, int);
     void addIngredient(Item *item);
     void render();
     void clear();
-    void setY(int y){
+    void setY(int y) {
         this->y = y;
     }
 };

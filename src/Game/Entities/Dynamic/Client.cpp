@@ -4,13 +4,12 @@ Client::Client(int x, int y, int width, int height, ofImage sprite, Burger* burg
     this->burger = burger;
 }
 Client::~Client(){
-    burger->~Burger();
+    delete burger;
 }
 void Client::render(){
     burger->render();
     ofSetColor (255,255,255);
     sprite.draw(x, y, width, height);
-    // ofDrawRectangle(getBounds());
     if(nextClient != nullptr){
         nextClient->render();
     }

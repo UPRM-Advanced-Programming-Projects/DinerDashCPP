@@ -4,13 +4,8 @@
 
 #include "Restaurant.h"
 
-Player *Restaurant::getPlayer() {
-    return player;
-}
-
-void Restaurant::setPlayer(Player *player) {
-    this->player = player;
-}
+Player *Restaurant::getPlayer() { return player; }
+void Restaurant::setPlayer(Player *player) { this->player = player; }
 
 Restaurant::Restaurant() {
     floor.load("images/floor.jpg");

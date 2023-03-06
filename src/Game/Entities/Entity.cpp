@@ -14,7 +14,6 @@ void Entity::tick(){
 void Entity::render(){
     ofSetColor (255,255,255);
     sprite.draw(x, y, width, height);
-    // ofDrawRectangle(getBounds());
 }
 
 bool Entity::collides(Entity* entity){

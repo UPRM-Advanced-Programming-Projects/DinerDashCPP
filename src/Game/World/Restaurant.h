@@ -1,12 +1,12 @@
 //
 // Created by joshu on 11/3/2020.
 //
+#pragma once
 
-# pragma once
-#include "ofMain.h"
-#include "Player.h"
-#include "EntityManager.h"
 #include "BaseCounter.h"
+#include "EntityManager.h"
+#include "Player.h"
+#include "ofMain.h"
 
 class Restaurant {
     private:
